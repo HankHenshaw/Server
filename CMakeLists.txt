@@ -11,7 +11,7 @@ find_package(Threads)
 set(BOOST_ROOT "/home/max/Загрузки/boost_1_73_0")
 set(BOOST_INCLUDE_DIRS "/home/max/Загрузки/boost_1_73_0")
 
-add_executable(bulkserver main.cpp server.h server.cpp)
+add_executable(bulkserver main.cpp server.h server.cpp async.h async.cpp observer.h observer.cpp)
 
 set_target_properties(bulkserver PROPERTIES
     CXX_STANDARD 17

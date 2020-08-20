@@ -17,17 +17,15 @@ int main(int argc, char* argv[])
             return 1;
         }
         std::cerr << "bulksize was set to 1\n";
+    } else {
+        bulkSize = std::atoi(argv[2]);
     }
-    bulkSize = std::atoi(argv[2]);
 
     io_service ioservice;
 
     tcp::endpoint ep(tcp::v4(), std::atoi(argv[1]));
-    Server server(ioservice, ep);
+    Server server(std::atoi(argv[1]), bulkSize);
 
-    //TODO
-
-    ioservice.run();
     return 0;
 }
 //https://habr.com/ru/post/192284/
