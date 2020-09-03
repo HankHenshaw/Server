@@ -1,6 +1,11 @@
 ist: xenial
 language: cpp
 compiler: clang
+before_install:
+  - sudo add-apt-repository ppa:mhier/libboost-latest -y
+  - sudo apt-get update -q
+install:
+  - sudo apt-get install libboost1.73-dev -y
 script:
 - cmake .
 - cmake --build .
