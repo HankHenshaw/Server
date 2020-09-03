@@ -1,3 +1,5 @@
+Travis-CI: [![Build Status](https://travis-ci.org/HankHenshaw/Server.svg?branch=master)](https://travis-ci.org/HankHenshaw/Server)
+
 # Server
 
 Простой сервер для [Observer](https://github.com/HankHenshaw/Observer)
