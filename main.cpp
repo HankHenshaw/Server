@@ -28,6 +28,3 @@ int main(int argc, char* argv[])
 
     return 0;
 }
-//https://habr.com/ru/post/192284/
-
-//https://www.boost.org/doc/libs/1_53_0/doc/html/boost_asio/example/chat/chat_server.cpp

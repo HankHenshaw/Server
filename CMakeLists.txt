@@ -7,10 +7,9 @@ endif()
 project(server VERSION 0.0.$ENV{TRAVIS_BUILD_NUMBER})
 
 find_package(Threads)
+find_package(Boost)
 
 set(LIBFILES async.cpp async.h observer.cpp observer.h)
-set(BOOST_ROOT "/home/max/Загрузки/boost_1_73_0")
-set(BOOST_INCLUDE_DIRS "/home/max/Загрузки/boost_1_73_0")
 
 add_library(bulk_lib SHARED ${LIBFILES})
 add_executable(bulkserver main.cpp server.h server.cpp)
@@ -18,8 +17,8 @@ add_executable(bulkserver main.cpp server.h server.cpp)
 set_target_properties(bulkserver PROPERTIES
     CXX_STANDARD 17
     CXX_STANDARD_REQUIRED ON
-    COMPILE_OPTIONS "-Wall;-Wextra;-Wpedantic"
-    INCLUDE_DIRECTORIES ${BOOST_INCLUDE_DIRS}
+    COMPILE_OPTIONS "-Wall;-Wextra;-Wpedantic"   
+    INCLUDE_DIRECTORIES ${Boost_INCLUDE_DIR}
 )
 
 target_link_libraries(bulkserver
