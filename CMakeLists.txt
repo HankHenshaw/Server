@@ -8,10 +8,12 @@ project(server VERSION 0.0.$ENV{TRAVIS_BUILD_NUMBER})
 
 find_package(Threads)
 
+set(LIBFILES async.cpp async.h observer.cpp observer.h)
 set(BOOST_ROOT "/home/max/Загрузки/boost_1_73_0")
 set(BOOST_INCLUDE_DIRS "/home/max/Загрузки/boost_1_73_0")
 
-add_executable(bulkserver main.cpp server.h server.cpp async.h async.cpp observer.h observer.cpp)
+add_library(bulk_lib SHARED ${LIBFILES})
+add_executable(bulkserver main.cpp server.h server.cpp)
 
 set_target_properties(bulkserver PROPERTIES
     CXX_STANDARD 17
@@ -23,6 +25,7 @@ set_target_properties(bulkserver PROPERTIES
 target_link_libraries(bulkserver
     ${Boost_LIBRARIES}
     ${CMAKE_THREAD_LIBS_INIT}
+    bulk_lib
 )
 
 install(TARGETS bulkserver RUNTIME DESTINATION bin)
